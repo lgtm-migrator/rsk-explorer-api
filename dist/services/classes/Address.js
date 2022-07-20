@@ -13,7 +13,7 @@ class Address extends _BcThing.BcThing {
     if (!this.isAddress(address)) throw new Error(`Invalid address: ${address}`);
     this.isZeroAddress = (0, _rskUtils.isZeroAddress)(address);
     this.bcSearch = (0, _rskContractParser.BcSearch)(nod3);
-    this.address = address;
+    this.address = address ? address.toLowerCase() : address;
     this.fetched = false;
     this.collection = collections ? collections.Addrs : undefined;
     this.contract = undefined;
